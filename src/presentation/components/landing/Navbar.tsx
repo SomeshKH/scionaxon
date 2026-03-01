@@ -85,7 +85,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-hover rounded-xl flex items-center justify-center shrink-0">
               <img
-                src="/src/public/images/Logo1.png"
+               src="/images/Logo1.png"
                 alt="logo"
                 className="w-full h-full object-cover rounded-lg"
               />

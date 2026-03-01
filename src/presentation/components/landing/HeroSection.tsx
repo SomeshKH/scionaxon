@@ -118,7 +118,7 @@ export default function HeroSection({ features }: Props) {
                   className="w-40 h-40 sm:w-48 sm:h-48 border-4 border-white/20 rounded-full flex items-center justify-center"
                 >
                   <img
-                    src="/src/public/images/Logo1.png"
+                   src="/images/Logo1.png"
                     alt="logo"
                     className="w-full h-full object-cover rounded-lg"
                   />

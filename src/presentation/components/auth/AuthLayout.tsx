@@ -40,7 +40,7 @@ export default function AuthLayout({ children, heading, subheading }: Props) {
           <Link to="/" className="inline-flex items-center gap-3 group">
             <div className="w-12 h-12 bg-white/15 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/25 group-hover:bg-white/25 transition-colors">
               <img
-                src="/src/public/images/Logo1.png"
+               src="/images/Logo1.png"
                 alt="logo"
                 className="w-full h-full object-cover rounded-lg"
               />
@@ -93,7 +93,7 @@ export default function AuthLayout({ children, heading, subheading }: Props) {
               className="w-28 h-28 border-4 border-white/15 rounded-full flex items-center justify-center relative z-10"
             >
               <img
-                src="/src/public/images/Logo1.png"
+               src="/images/Logo1.png"
                 alt="logo"
                 className="w-full h-full object-cover rounded-lg"
               />
@@ -131,7 +131,7 @@ export default function AuthLayout({ children, heading, subheading }: Props) {
           <Link to="/" className="inline-flex items-center gap-2.5">
             <div className="w-9 h-9 bg-gradient-to-br from-[#0F7B6C] to-teal-500 rounded-xl flex items-center justify-center">
               <img
-                src="/src/public/images/Logo1.png"
+               src="/images/Logo1.png"
                 alt="logo"
                 className="w-full h-full object-cover rounded-lg"
               />
