@@ -1,158 +1,400 @@
-@custom-variant dark (&:is(.dark *));
+/* ================================================================
+   SCIONAXON — DESIGN TOKEN SYSTEM v2.0
+   Agriculture Import/Export Platform | Premium B2B
+   ================================================================
+   STRUCTURE
+   ├── @custom-variant     Tailwind dark strategy
+   ├── :root               Light theme source variables
+   ├── .dark / [data-theme="dark"]   Dark overrides
+   ├── @theme inline       Tailwind utility mapping
+   └── @layer base         Global element defaults
+   ================================================================ */
 
+/* Tailwind dark variant — responds to .dark class OR data-theme attr */
+@custom-variant dark (&:is(.dark *, [data-theme=dark] *));
+
+
+/* ──────────────────────────────────────────────────────────────
+   LIGHT THEME
+   ────────────────────────────────────────────────────────────── */
 :root {
-  --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #0F7B6C;
-  --primary-foreground: #ffffff;
-  --secondary: #1F3A5F;
-  --secondary-foreground: #ffffff;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --ring: #0F7B6C;
-  --chart-1: #0F7B6C;
-  --chart-2: #1F3A5F;
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: #1F3A5F;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #0F7B6C;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: rgba(255, 255, 255, 0.1);
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: rgba(255, 255, 255, 0.1);
-  --sidebar-ring: #0F7B6C;
+
+  /* ┌─────────────────────────────────────────┐
+     │  BRAND                                  │
+     └─────────────────────────────────────────┘ */
+
+  /* Primary — Deep Forest Green (#1F7A63) */
+  --primary:                  #1F7A63;
+  --primary-hover:            #186655;
+  --primary-active:           #10524A;
+  --primary-surface:          #EBF5F1;
+  --primary-foreground:       #FFFFFF;
+
+  /* Secondary — Rich Gold (#CFAF4A) */
+  --secondary:                #CFAF4A;
+  --secondary-hover:          #B89A3A;
+  --secondary-active:         #9E8330;
+  --secondary-surface:        #FBF7E7;
+  --secondary-foreground:     #1A1400;
+
+  /* Accent — Earth Brown (#8B5E3C) */
+  --accent:                   #8B5E3C;
+  --accent-hover:             #7A5235;
+  --accent-surface:           #F5EDE5;
+  --accent-foreground:        #FFFFFF;
+
+  /* ┌─────────────────────────────────────────┐
+     │  SURFACE & ELEVATION                    │
+     └─────────────────────────────────────────┘
+     Light mode elevation is expressed via shadow,
+     not color differentiation.                 */
+
+  --background:               #F7F9F5;   /* Page canvas               */
+  --surface:                  #FFFFFF;   /* Panels, forms, sections   */
+  --surface-raised:           #FFFFFF;   /* Modals, popovers          */
+  --card:                     #FFFFFF;   /* Dashboard cards           */
+  --card-foreground:          #2E2E2E;
+  --popover:                  #FFFFFF;
+  --popover-foreground:       #2E2E2E;
+  --overlay:                  rgba(15, 30, 25, 0.45);
+
+  /* ┌─────────────────────────────────────────┐
+     │  BORDER & DIVIDER                       │
+     └─────────────────────────────────────────┘ */
+
+  --border:                   rgba(31, 122, 99, 0.15);
+  --border-strong:            rgba(31, 122, 99, 0.32);
+  --divider:                  rgba(46, 46, 46, 0.08);
+  --ring:                     #1F7A63;
+
+  /* ┌─────────────────────────────────────────┐
+     │  TYPOGRAPHY                             │
+     └─────────────────────────────────────────┘ */
+
+  --foreground:               #2E2E2E;   /* Primary — headings, body  */
+  --foreground-secondary:     #5A5A5A;   /* Subtitles, labels, meta   */
+  --foreground-muted:         #8E8E8E;   /* Placeholders, timestamps  */
+  --foreground-inverse:       #F7F9F5;   /* Text on dark surfaces     */
+
+  /* ┌─────────────────────────────────────────┐
+     │  INPUT & FORM                           │
+     └─────────────────────────────────────────┘ */
+
+  --input:                    transparent;
+  --input-background:         #F0F4F1;
+  --switch-background:        #C4D0CB;
+  --muted:                    #EDF1EC;
+  --muted-foreground:         #6B7C75;
+
+  /* Shadcn destructive variant */
+  --destructive:              #DC2626;
+  --destructive-foreground:   #FFFFFF;
+
+  /* ┌─────────────────────────────────────────┐
+     │  SEMANTIC STATES                        │
+     └─────────────────────────────────────────┘ */
+
+  --success:                  #16A34A;
+  --success-hover:            #15803D;
+  --success-surface:          #DCFCE7;
+  --success-foreground:       #FFFFFF;
+
+  --warning:                  #D97706;
+  --warning-hover:            #B45309;
+  --warning-surface:          #FEF3C7;
+  --warning-foreground:       #FFFFFF;
+
+  --error:                    #DC2626;
+  --error-hover:              #B91C1C;
+  --error-surface:            #FEE2E2;
+  --error-foreground:         #FFFFFF;
+
+  --info:                     #2563EB;
+  --info-hover:               #1D4ED8;
+  --info-surface:             #DBEAFE;
+  --info-foreground:          #FFFFFF;
+
+  /* ┌─────────────────────────────────────────┐
+     │  CHART PALETTE                          │
+     └─────────────────────────────────────────┘
+     Recommended sequence for data visualizations:
+     1 Forest Green  2 Rich Gold   3 Earth Brown
+     4 Sky Blue      5 Violet      6 Emerald      */
+
+  --chart-1:                  #1F7A63;
+  --chart-2:                  #CFAF4A;
+  --chart-3:                  #8B5E3C;
+  --chart-4:                  #3B82F6;
+  --chart-5:                  #A855F7;
+  --chart-6:                  #10B981;
+
+  /* ┌─────────────────────────────────────────┐
+     │  SIDEBAR                                │
+     └─────────────────────────────────────────┘ */
+
+  --sidebar:                  #163F30;
+  --sidebar-foreground:       #FFFFFF;
+  --sidebar-primary:          #CFAF4A;
+  --sidebar-primary-foreground: #1A1400;
+  --sidebar-accent:           rgba(255, 255, 255, 0.10);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border:           rgba(255, 255, 255, 0.10);
+  --sidebar-ring:             #1F7A63;
+
+  /* ┌─────────────────────────────────────────┐
+     │  SCALE & FONT                           │
+     └─────────────────────────────────────────┘ */
+
+  --radius:                   0.625rem;
+  --font-size:                16px;
+  --font-weight-normal:       400;
+  --font-weight-medium:       500;
+  --font-weight-semibold:     600;
+  --font-weight-bold:         700;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+
+/* ──────────────────────────────────────────────────────────────
+   DARK THEME
+   Deep green-tinted backgrounds — NOT pure black.
+   4-step elevation via distinct surface colors.
+   Gold brightens slightly. Text is soft warm-white.
+   ────────────────────────────────────────────────────────────── */
+.dark,
+[data-theme="dark"] {
+
+  /* Brand — elevated for readability on dark */
+  --primary:                  #28A882;
+  --primary-hover:            #34C498;
+  --primary-active:           #3DD9AD;
+  --primary-surface:          #0D2B22;
+  --primary-foreground:       #FFFFFF;
+
+  /* Gold — slightly richer in dark mode */
+  --secondary:                #E8C855;
+  --secondary-hover:          #F2D870;
+  --secondary-active:         #FADD7A;
+  --secondary-surface:        #2A2200;
+  --secondary-foreground:     #1A1200;
+
+  /* Earth — warmed up for contrast */
+  --accent:                   #C4895D;
+  --accent-hover:             #D49A6E;
+  --accent-surface:           #2A1A0E;
+  --accent-foreground:        #FFFFFF;
+
+  /* Surface — 4-step green-tinted elevation system
+     Each level is progressively lighter, never gray.
+     background → surface → surface-raised → card    */
+  --background:               #0F1E19;   /* Level 0 — deepest canvas  */
+  --surface:                  #162822;   /* Level 1 — panels, forms   */
+  --surface-raised:           #1C3229;   /* Level 2 — modals, drawers */
+  --card:                     #1E3428;   /* Level 3 — dashboard cards */
+  --card-foreground:          #E8F0EC;
+  --popover:                  #1C3229;
+  --popover-foreground:       #E8F0EC;
+  --overlay:                  rgba(0, 0, 0, 0.65);
+
+  --border:                   rgba(40, 168, 130, 0.18);
+  --border-strong:            rgba(40, 168, 130, 0.38);
+  --divider:                  rgba(255, 255, 255, 0.06);
+  --ring:                     #28A882;
+
+  /* Text — green-tinted soft whites, NOT pure #FFFFFF */
+  --foreground:               #E8F0EC;
+  --foreground-secondary:     #A8C4B5;
+  --foreground-muted:         #6B9080;
+  --foreground-inverse:       #0F1E19;
+
+  /* Input & form */
+  --input:                    rgba(255, 255, 255, 0.07);
+  --input-background:         rgba(255, 255, 255, 0.06);
+  --switch-background:        rgba(255, 255, 255, 0.22);
+  --muted:                    rgba(255, 255, 255, 0.08);
+  --muted-foreground:         #6B9080;
+
+  --destructive:              #F87171;
+  --destructive-foreground:   #FFFFFF;
+
+  /* States — luminous on dark backgrounds */
+  --success:                  #22C55E;
+  --success-hover:            #16A34A;
+  --success-surface:          #052E16;
+  --success-foreground:       #FFFFFF;
+
+  --warning:                  #F59E0B;
+  --warning-hover:            #D97706;
+  --warning-surface:          #1C1400;
+  --warning-foreground:       #FFFFFF;
+
+  --error:                    #F87171;
+  --error-hover:              #EF4444;
+  --error-surface:            #2D0A0A;
+  --error-foreground:         #FFFFFF;
+
+  --info:                     #60A5FA;
+  --info-hover:               #3B82F6;
+  --info-surface:             #0A1628;
+  --info-foreground:          #FFFFFF;
+
+  /* Charts — luminous, high contrast on dark */
+  --chart-1:                  #28A882;
+  --chart-2:                  #E8C855;
+  --chart-3:                  #C4895D;
+  --chart-4:                  #60A5FA;
+  --chart-5:                  #C084FC;
+  --chart-6:                  #34D399;
+
+  /* Sidebar — deepest green, slightly darker than background */
+  --sidebar:                  #0D1F19;
+  --sidebar-foreground:       #E8F0EC;
+  --sidebar-primary:          #E8C855;
+  --sidebar-primary-foreground: #1A1200;
+  --sidebar-accent:           rgba(232, 200, 85, 0.10);
+  --sidebar-accent-foreground: #E8F0EC;
+  --sidebar-border:           rgba(255, 255, 255, 0.07);
+  --sidebar-ring:             #28A882;
 }
 
+
+/* ──────────────────────────────────────────────────────────────
+   TAILWIND v4 UTILITY MAPPING
+   Source variables → Tailwind color utilities
+
+   New semantic tokens available:
+   bg-primary-surface      text-foreground-secondary
+   bg-secondary-surface    text-foreground-muted
+   bg-success-surface      border-border-strong
+   bg-error-surface        bg-surface-raised
+   ────────────────────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-input-background: var(--input-background);
-  --color-switch-background: var(--switch-background);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ── Brand ──────────────────────────────────────────── */
+  --color-primary:                      var(--primary);
+  --color-primary-hover:                var(--primary-hover);
+  --color-primary-active:               var(--primary-active);
+  --color-primary-surface:              var(--primary-surface);
+  --color-primary-foreground:           var(--primary-foreground);
+
+  --color-secondary:                    var(--secondary);
+  --color-secondary-hover:              var(--secondary-hover);
+  --color-secondary-active:             var(--secondary-active);
+  --color-secondary-surface:            var(--secondary-surface);
+  --color-secondary-foreground:         var(--secondary-foreground);
+
+  --color-accent:                       var(--accent);
+  --color-accent-hover:                 var(--accent-hover);
+  --color-accent-surface:               var(--accent-surface);
+  --color-accent-foreground:            var(--accent-foreground);
+
+  /* ── Surface ────────────────────────────────────────── */
+  --color-background:                   var(--background);
+  --color-surface:                      var(--surface);
+  --color-surface-raised:               var(--surface-raised);
+  --color-card:                         var(--card);
+  --color-card-foreground:              var(--card-foreground);
+  --color-popover:                      var(--popover);
+  --color-popover-foreground:           var(--popover-foreground);
+
+  /* ── Border ─────────────────────────────────────────── */
+  --color-border:                       var(--border);
+  --color-border-strong:                var(--border-strong);
+  --color-divider:                      var(--divider);
+  --color-ring:                         var(--ring);
+
+  /* ── Text ───────────────────────────────────────────── */
+  --color-foreground:                   var(--foreground);
+  --color-foreground-secondary:         var(--foreground-secondary);
+  --color-foreground-muted:             var(--foreground-muted);
+  --color-foreground-inverse:           var(--foreground-inverse);
+
+  /* ── Shadcn / Radix compatibility ──────────────────── */
+  --color-muted:                        var(--muted);
+  --color-muted-foreground:             var(--muted-foreground);
+  --color-input:                        var(--input);
+  --color-input-background:             var(--input-background);
+  --color-switch-background:            var(--switch-background);
+  --color-destructive:                  var(--destructive);
+  --color-destructive-foreground:       var(--destructive-foreground);
+
+  /* ── States ─────────────────────────────────────────── */
+  --color-success:                      var(--success);
+  --color-success-surface:              var(--success-surface);
+  --color-success-foreground:           var(--success-foreground);
+
+  --color-warning:                      var(--warning);
+  --color-warning-surface:              var(--warning-surface);
+  --color-warning-foreground:           var(--warning-foreground);
+
+  --color-error:                        var(--error);
+  --color-error-surface:                var(--error-surface);
+  --color-error-foreground:             var(--error-foreground);
+
+  --color-info:                         var(--info);
+  --color-info-surface:                 var(--info-surface);
+  --color-info-foreground:              var(--info-foreground);
+
+  /* ── Charts ─────────────────────────────────────────── */
+  --color-chart-1:                      var(--chart-1);
+  --color-chart-2:                      var(--chart-2);
+  --color-chart-3:                      var(--chart-3);
+  --color-chart-4:                      var(--chart-4);
+  --color-chart-5:                      var(--chart-5);
+  --color-chart-6:                      var(--chart-6);
+
+  /* ── Sidebar ────────────────────────────────────────── */
+  --color-sidebar:                      var(--sidebar);
+  --color-sidebar-foreground:           var(--sidebar-foreground);
+  --color-sidebar-primary:              var(--sidebar-primary);
+  --color-sidebar-primary-foreground:   var(--sidebar-primary-foreground);
+  --color-sidebar-accent:               var(--sidebar-accent);
+  --color-sidebar-accent-foreground:    var(--sidebar-accent-foreground);
+  --color-sidebar-border:               var(--sidebar-border);
+  --color-sidebar-ring:                 var(--sidebar-ring);
+
+  /* ── Radius ─────────────────────────────────────────── */
+  --radius-sm:                          calc(var(--radius) - 4px);
+  --radius-md:                          calc(var(--radius) - 2px);
+  --radius-lg:                          var(--radius);
+  --radius-xl:                          calc(var(--radius) + 4px);
+  --radius-2xl:                         calc(var(--radius) + 8px);
 }
 
+
+/* ──────────────────────────────────────────────────────────────
+   BASE LAYER
+   ────────────────────────────────────────────────────────────── */
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground;
   }
 
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
-
-  html {
-    font-size: var(--font-size);
-  }
-
   h1 {
     font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.25;
   }
 
   h2 {
     font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
   }
 
   h3 {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   h4 {
@@ -162,20 +404,31 @@
   }
 
   label {
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
   button {
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
   }
 
-  input {
-    font-size: var(--text-base);
+  input,
+  textarea,
+  select {
+    font-size: var(--text-sm);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  ::selection {
+    background-color: var(--primary-surface);
+    color: var(--primary);
   }
 }

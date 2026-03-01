@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { CounterTargets } from '@/domain/types/landing';
+import type { CounterTargets } from '../../domain/types/landing';
 
 export function useAnimatedCounter(
   targets: CounterTargets,

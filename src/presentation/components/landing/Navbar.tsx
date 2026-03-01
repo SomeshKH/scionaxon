@@ -43,7 +43,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -8, scale: 0.95 }}
           transition={{ duration: 0.15 }}
-          className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50"
+          className="absolute right-0 mt-2 w-36 bg-card rounded-xl shadow-xl border border-border overflow-hidden z-50"
         >
           {THEME_OPTIONS.map(({ value, label, icon: Icon }) => (
             <button
@@ -107,12 +107,12 @@ export default function Navbar() {
               <ThemeDropdownMenu />
             </div>
 
-            <Link to="/dashboard">
+            <Link to="/login">
               <Button variant="outline" className="border-[#0F7B6C] text-[#0F7B6C] hover:bg-[#0F7B6C] hover:text-white dark:border-teal-500 dark:text-teal-400 dark:hover:bg-teal-500 dark:hover:text-white text-sm">
                 Sign In
               </Button>
             </Link>
-            <Link to="/dashboard">
+            <Link to="/signup">
               <Button className="bg-gradient-to-r from-[#0F7B6C] to-teal-500 hover:shadow-lg hover:shadow-teal-500/50 transition-all text-sm">
                 Get Started
               </Button>
@@ -163,12 +163,12 @@ export default function Navbar() {
                   Testimonials
                 </a>
                 <div className="flex gap-3 pt-3 mt-1 border-t border-gray-100 dark:border-gray-800">
-                  <Link to="/dashboard" className="flex-1" onClick={() => setMobileOpen(false)}>
+                  <Link to="/login" className="flex-1" onClick={() => setMobileOpen(false)}>
                     <Button variant="outline" className="w-full border-[#0F7B6C] text-[#0F7B6C] hover:bg-[#0F7B6C] hover:text-white dark:border-teal-500 dark:text-teal-400">
                       Sign In
                     </Button>
                   </Link>
-                  <Link to="/dashboard" className="flex-1" onClick={() => setMobileOpen(false)}>
+                  <Link to="/signup" className="flex-1" onClick={() => setMobileOpen(false)}>
                     <Button className="w-full bg-gradient-to-r from-[#0F7B6C] to-teal-500">
                       Get Started
                     </Button>
