@@ -1,4 +1,4 @@
-import { Globe } from 'lucide-react';
+
 
 export default function LandingFooter() {
   return (
@@ -8,7 +8,11 @@ export default function LandingFooter() {
           <div className="col-span-2 sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-[#0F7B6C] to-teal-500 rounded-xl flex items-center justify-center shrink-0">
-                <Globe className="w-6 h-6 text-white" />
+                <img
+                src="/images/Logo1.png"
+                alt="logo"
+                className="w-full h-full object-cover rounded-lg"
+              />
               </div>
               <span className="text-2xl font-bold">ScionAxon</span>
             </div>
