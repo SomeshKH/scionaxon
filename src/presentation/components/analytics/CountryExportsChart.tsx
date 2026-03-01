@@ -29,7 +29,7 @@ export default function CountryExportsChart({ data }: Props) {
               color: 'var(--card-foreground)',
             }}
           />
-          <Bar dataKey="value" fill="#0F7B6C" radius={[0, 8, 8, 0]} />
+          <Bar dataKey="value" fill="var(--primary)" radius={[0, 8, 8, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </motion.div>

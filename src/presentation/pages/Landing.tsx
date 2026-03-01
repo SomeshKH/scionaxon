@@ -15,7 +15,7 @@ export default function Landing() {
   const counts = useAnimatedCounter(COUNTER_TARGETS);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection features={features} />
       <CounterSection counts={counts} />

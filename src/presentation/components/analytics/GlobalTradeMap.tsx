@@ -65,7 +65,7 @@ export default function GlobalTradeMap({ onCountrySelect }: Props) {
                   cx={node.x}
                   cy={node.y}
                   r="12"
-                  fill="#0F7B6C"
+                  fill="var(--primary)"
                   className="cursor-pointer"
                   whileHover={{ scale: 1.5 }}
                   animate={{ r: [12, 16, 12], opacity: [1, 0.7, 1] }}
@@ -93,8 +93,8 @@ export default function GlobalTradeMap({ onCountrySelect }: Props) {
 
             <defs>
               <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0F7B6C" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="var(--warning)" stopOpacity="0.8" />
               </linearGradient>
             </defs>
           </svg>

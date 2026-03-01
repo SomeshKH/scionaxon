@@ -23,7 +23,7 @@ export default function TestimonialsSection({ testimonials }: Props) {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-xl text-teal-200">See what our clients say about us</p>
+          <p className="text-xl text-foreground-secondary">See what our clients say about us</p>
         </motion.div>
 
         <motion.div
@@ -35,7 +35,7 @@ export default function TestimonialsSection({ testimonials }: Props) {
         >
           <div className="flex gap-2 mb-6">
             {[...Array(active.rating)].map((_, i) => (
-              <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+              <Star key={i} className="w-6 h-6 fill-warning text-warning" />
             ))}
           </div>
 
@@ -43,7 +43,7 @@ export default function TestimonialsSection({ testimonials }: Props) {
 
           <div>
             <p className="text-xl font-bold text-white">{active.name}</p>
-            <p className="text-teal-200">{active.role}</p>
+            <p className="text-foreground-secondary">{active.role}</p>
           </div>
         </motion.div>
 

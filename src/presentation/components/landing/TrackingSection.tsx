@@ -20,7 +20,7 @@ export default function TrackingSection() {
           <div className="relative max-w-2xl mx-auto">
             <Input
               placeholder="Enter tracking number (e.g., SCA-2024-123456)"
-              className="h-14 sm:h-16 pl-4 sm:pl-6 pr-28 sm:pr-40 text-base sm:text-lg rounded-2xl border-2 border-gray-300 dark:border-gray-600 focus:border-[#0F7B6C] focus:ring-4 focus:ring-[#0F7B6C]/20 transition-all shadow-lg dark:bg-gray-800 dark:text-white dark:placeholder-gray-500"
+              className="h-14 sm:h-16 pl-4 sm:pl-6 pr-28 sm:pr-40 text-base sm:text-lg rounded-2xl border-2 border-border focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all shadow-lg bg-input-background text-foreground placeholder-foreground-muted"
             />
             <Button className="absolute right-2 top-2 h-10 sm:h-12 bg-gradient-to-r from-[#0F7B6C] to-teal-500 hover:shadow-lg px-4 sm:px-8">
               <Search className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />

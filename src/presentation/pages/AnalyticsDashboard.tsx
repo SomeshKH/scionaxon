@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
-import { Filter } from 'lucide-react';
-import { Button } from '../../ui/button';
+import { useState, useMemo } from "react";
+import { Filter } from "lucide-react";
+import { Button } from "../../ui/button";
 import {
   mockShipments,
   revenueMarginData,
@@ -8,23 +8,23 @@ import {
   countryExports,
   heatmapData,
   analyticsAiInsights,
-} from '../../application/data/analyticsData';
-import AnalyticsTopBar from '../../presentation/components/analytics/AnalyticsTopBar';
-import FiltersPanel from '../../presentation/components/analytics/FiltersPanel';
-import AnalyticsKpiCards from '../../presentation/components/analytics/AnalyticsKpiCards';
-import GlobalTradeMap from '../../presentation/components/analytics/GlobalTradeMap';
-import SupplyChainFlow from '../../presentation/components/analytics/SupplyChainFlow';
-import AiInsightSpotlight from '../../presentation/components/analytics/AiInsightSpotlight';
-import RevenueMarginChart from '../../presentation/components/analytics/RevenueMarginChart';
-import ProductDistributionChart from '../../presentation/components/analytics/ProductDistributionChart';
-import CountryExportsChart from '../../presentation/components/analytics/CountryExportsChart';
-import ShipmentHeatmap from '../../presentation/components/analytics/ShipmentHeatmap';
-import ShipmentAnalyticsTable from '../../presentation/components/analytics/ShipmentAnalyticsTable';
+} from "../../application/data/analyticsData";
+import AnalyticsTopBar from "../../presentation/components/analytics/AnalyticsTopBar";
+import FiltersPanel from "../../presentation/components/analytics/FiltersPanel";
+import AnalyticsKpiCards from "../../presentation/components/analytics/AnalyticsKpiCards";
+import GlobalTradeMap from "../../presentation/components/analytics/GlobalTradeMap";
+import SupplyChainFlow from "../../presentation/components/analytics/SupplyChainFlow";
+import AiInsightSpotlight from "../../presentation/components/analytics/AiInsightSpotlight";
+import RevenueMarginChart from "../../presentation/components/analytics/RevenueMarginChart";
+import ProductDistributionChart from "../../presentation/components/analytics/ProductDistributionChart";
+import CountryExportsChart from "../../presentation/components/analytics/CountryExportsChart";
+import ShipmentHeatmap from "../../presentation/components/analytics/ShipmentHeatmap";
+import ShipmentAnalyticsTable from "../../presentation/components/analytics/ShipmentAnalyticsTable";
 
 export default function AnalyticsDashboard() {
   const [filterOpen, setFilterOpen] = useState(true);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-  const [dateRange, setDateRange] = useState('30d');
+  const [dateRange, setDateRange] = useState("30d");
   const [invoiceRange, setInvoiceRange] = useState([0, 150000]);
   const [marginRange, setMarginRange] = useState([0, 50000]);
   const [highMarginOnly, setHighMarginOnly] = useState(false);
@@ -33,7 +33,8 @@ export default function AnalyticsDashboard() {
 
   const totals = useMemo(() => {
     let filtered = [...mockShipments];
-    if (selectedCountry) filtered = filtered.filter((s) => s.country === selectedCountry);
+    if (selectedCountry)
+      filtered = filtered.filter((s) => s.country === selectedCountry);
     if (highMarginOnly) filtered = filtered.filter((s) => s.margin > 10000);
     return {
       shipments: filtered.length,
@@ -66,11 +67,13 @@ export default function AnalyticsDashboard() {
           onRecentShipmentsChange={setRecentShipments}
         />
 
-        <main className={`flex-1 p-6 transition-all ${filterOpen ? 'ml-80' : 'ml-0'}`}>
+        <main
+          className={`flex-1 p-6 transition-all ${filterOpen ? "ml-80" : "ml-0"}`}
+        >
           {!filterOpen && (
             <Button
               onClick={() => setFilterOpen(true)}
-              className="mb-6 bg-[#0F7B6C] hover:bg-[#0F7B6C]/90"
+              className="mb-6 bg-primary hover:bg-primary-hover"
             >
               <Filter className="w-4 h-4 mr-2" />
               Show Filters
@@ -78,7 +81,10 @@ export default function AnalyticsDashboard() {
           )}
 
           <AnalyticsKpiCards totals={totals} />
-          <GlobalTradeMap selectedCountry={selectedCountry} onCountrySelect={setSelectedCountry} />
+          <GlobalTradeMap
+            selectedCountry={selectedCountry}
+            onCountrySelect={setSelectedCountry}
+          />
           <SupplyChainFlow />
           <AiInsightSpotlight insights={analyticsAiInsights} />
 

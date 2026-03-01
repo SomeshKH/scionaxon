@@ -1,8 +1,8 @@
-import { motion } from 'motion/react';
-import { ArrowRight, Globe, Search } from 'lucide-react';
-import { Link } from 'react-router';
-import { Button } from '../../../ui/button';
-import type { Feature } from '../../../application/data/landingData';
+import { motion } from "motion/react";
+import { ArrowRight, Globe, Search } from "lucide-react";
+import { Link } from "react-router";
+import { Button } from "../../../ui/button";
+import type { Feature } from "../../../application/data/landingData";
 
 interface Props {
   features: Feature[];
@@ -12,8 +12,8 @@ export default function HeroSection({ features }: Props) {
   return (
     <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#0F7B6C]/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#1F3A5F]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-sidebar/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -24,11 +24,13 @@ export default function HeroSection({ features }: Props) {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-[#0F7B6C]/10 to-teal-500/10 rounded-full border border-[#0F7B6C]/20">
-              <span className="text-[#0F7B6C] dark:text-teal-400 text-sm font-semibold">AI-Powered Trade Platform</span>
+              <span className="text-primary text-sm font-semibold">
+                AI-Powered Trade Platform
+              </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-gray-900 dark:text-white">
-              Powering{' '}
+              Powering{" "}
               <span className="bg-gradient-to-r from-[#0F7B6C] to-teal-500 bg-clip-text text-transparent">
                 Smart
               </span>
@@ -42,7 +44,7 @@ export default function HeroSection({ features }: Props) {
             </p>
 
             <div className="flex flex-wrap gap-3 sm:gap-4 mb-10 sm:mb-12">
-              <Link to="/dashboard">
+              <Link to="/signup">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-[#0F7B6C] to-teal-500 hover:shadow-2xl hover:shadow-teal-500/30 transition-all text-base sm:text-lg px-6 sm:px-8 group"
@@ -54,7 +56,7 @@ export default function HeroSection({ features }: Props) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-[#1F3A5F] text-[#1F3A5F] hover:bg-[#1F3A5F] hover:text-white dark:border-teal-500 dark:text-teal-400 dark:hover:bg-teal-500 dark:hover:text-white text-base sm:text-lg px-6 sm:px-8"
+                className="border-2 border-info text-info hover:bg-info hover:text-info-foreground text-base sm:text-lg px-6 sm:px-8"
               >
                 <Search className="mr-2 w-5 h-5" />
                 Track Shipment
@@ -70,8 +72,10 @@ export default function HeroSection({ features }: Props) {
                   transition={{ delay: idx * 0.1 + 0.5 }}
                   className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-full shadow-md border border-gray-200 dark:border-gray-700"
                 >
-                  <feature.icon className="w-4 h-4 text-[#0F7B6C] dark:text-teal-400 shrink-0" />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{feature.text}</span>
+                  <feature.icon className="w-4 h-4 text-primary shrink-0" />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {feature.text}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -90,39 +94,60 @@ export default function HeroSection({ features }: Props) {
                 <motion.div
                   key={i}
                   className="absolute w-3 h-3 bg-white rounded-full shadow-lg"
-                  style={{ left: `${20 + i * 10}%`, top: `${30 + Math.sin(i) * 20}%` }}
+                  style={{
+                    left: `${20 + i * 10}%`,
+                    top: `${30 + Math.sin(i) * 20}%`,
+                  }}
                   animate={{ y: [0, -20, 0], opacity: [1, 0.5, 1] }}
-                  transition={{ duration: 2 + i * 0.3, repeat: Infinity, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 2 + i * 0.3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 />
               ))}
 
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="w-40 h-40 sm:w-48 sm:h-48 border-4 border-white/20 rounded-full flex items-center justify-center"
                 >
-                  <Globe className="w-20 h-20 sm:w-24 sm:h-24 text-white/80" />
+                  <img
+                    src="/src/public/images/Logo1.png"
+                    alt="logo"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
                 </motion.div>
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              className="absolute -bottom-6 left-4 sm:-bottom-8 sm:-left-8 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-700"
-            >
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0F7B6C] to-teal-500 rounded-xl flex items-center justify-center shrink-0">
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            <Link to="/signup">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.5 }}
+                className="absolute -bottom-6 left-4 sm:-bottom-8 sm:-left-8 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0F7B6C] to-teal-500 rounded-xl flex items-center justify-center shrink-0">
+                    <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                      98.5%
+                    </p>
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                      On-Time Delivery
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">98.5%</p>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">On-Time Delivery</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           </motion.div>
         </div>
       </div>

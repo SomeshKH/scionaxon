@@ -52,7 +52,7 @@ export default function ShipmentsTable({ shipments }: Props) {
                 className="border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors cursor-pointer"
               >
                 <td className="px-6 py-4">
-                  <span className="font-mono text-sm font-semibold text-[#0F7B6C] dark:text-teal-400">{shipment.id}</span>
+                  <span className="font-mono text-sm font-semibold text-primary">{shipment.id}</span>
                 </td>
                 <td className="px-6 py-4 text-sm dark:text-gray-300">{shipment.product}</td>
                 <td className="px-6 py-4 text-sm dark:text-gray-300">{shipment.destination}</td>

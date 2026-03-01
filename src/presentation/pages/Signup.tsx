@@ -38,10 +38,10 @@ function PasswordStrength({ password }: { password: string }) {
   ];
   const strength = checks.filter(Boolean).length;
   const meta = [
-    { label: 'Weak', color: 'bg-red-500' },
-    { label: 'Fair', color: 'bg-orange-400' },
-    { label: 'Good', color: 'bg-blue-500' },
-    { label: 'Strong', color: 'bg-[#0F7B6C]' },
+    { label: 'Weak', color: 'bg-error' },
+    { label: 'Fair', color: 'bg-warning' },
+    { label: 'Good', color: 'bg-info' },
+    { label: 'Strong', color: 'bg-success' },
   ];
   const { label, color } = meta[strength - 1] ?? { label: '', color: '' };
 
@@ -56,14 +56,14 @@ function PasswordStrength({ password }: { password: string }) {
           <div
             key={i}
             className={`h-1 flex-1 rounded-full transition-all duration-300 ${
-              i <= strength ? color : 'bg-gray-200 dark:bg-gray-700'
+              i <= strength ? color : 'bg-muted'
             }`}
           />
         ))}
       </div>
-      <p className="text-xs text-gray-500 dark:text-gray-400">
+      <p className="text-xs text-foreground-muted">
         Strength:{' '}
-        <span className="font-semibold text-gray-700 dark:text-gray-300">{label}</span>
+        <span className="font-semibold text-foreground-secondary">{label}</span>
       </p>
     </motion.div>
   );
@@ -85,10 +85,10 @@ export default function Signup() {
     >
       {/* Heading */}
       <div className="mb-7">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-1.5">
+        <h1 className="text-3xl font-bold text-foreground mb-1.5">
           Create your account
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-sm">
+        <p className="text-foreground-secondary text-sm">
           Free forever. No credit card required.
         </p>
       </div>
@@ -104,7 +104,7 @@ export default function Signup() {
         {/* Full Name + Company — 2-col grid */}
         <div className="grid grid-cols-2 gap-3">
           <div className="space-y-1.5">
-            <Label htmlFor="fullName" className="text-gray-700 dark:text-gray-300 text-sm">
+            <Label htmlFor="fullName" className="text-foreground-secondary text-sm">
               Full Name
             </Label>
             <Input
@@ -112,15 +112,15 @@ export default function Signup() {
               placeholder="John Doe"
               value={form.fullName}
               onChange={(e) => setField('fullName', e.target.value)}
-              className={`h-11 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
-                getError('fullName') ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15' : ''
+              className={`h-11 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
+                getError('fullName') ? 'border-error focus:border-error focus:ring-error/15' : ''
               }`}
             />
             <FieldError message={getError('fullName')} />
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="company" className="text-gray-700 dark:text-gray-300 text-sm">
+            <Label htmlFor="company" className="text-foreground-secondary text-sm">
               Company
             </Label>
             <Input
@@ -128,8 +128,8 @@ export default function Signup() {
               placeholder="Acme Trade Ltd"
               value={form.company}
               onChange={(e) => setField('company', e.target.value)}
-              className={`h-11 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
-                getError('company') ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15' : ''
+              className={`h-11 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
+                getError('company') ? 'border-error focus:border-error focus:ring-error/15' : ''
               }`}
             />
             <FieldError message={getError('company')} />
@@ -138,7 +138,7 @@ export default function Signup() {
 
         {/* Email */}
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-gray-700 dark:text-gray-300 text-sm">
+          <Label htmlFor="email" className="text-foreground-secondary text-sm">
             Email Address
           </Label>
           <Input
@@ -147,8 +147,8 @@ export default function Signup() {
             placeholder="you@company.com"
             value={form.email}
             onChange={(e) => setField('email', e.target.value)}
-            className={`h-11 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
-              getError('email') ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15' : ''
+            className={`h-11 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
+              getError('email') ? 'border-error focus:border-error focus:ring-error/15' : ''
             }`}
           />
           <FieldError message={getError('email')} />
@@ -156,7 +156,7 @@ export default function Signup() {
 
         {/* Password */}
         <div className="space-y-1.5">
-          <Label htmlFor="password" className="text-gray-700 dark:text-gray-300 text-sm">
+          <Label htmlFor="password" className="text-foreground-secondary text-sm">
             Password
           </Label>
           <div className="relative">
@@ -166,14 +166,14 @@ export default function Signup() {
               placeholder="Min. 8 characters"
               value={form.password}
               onChange={(e) => setField('password', e.target.value)}
-              className={`h-11 pr-11 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
-                getError('password') ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15' : ''
+              className={`h-11 pr-11 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
+                getError('password') ? 'border-error focus:border-error focus:ring-error/15' : ''
               }`}
             />
             <button
               type="button"
               onClick={() => setShowPassword((v) => !v)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground-muted hover:text-foreground-secondary transition-colors"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -185,7 +185,7 @@ export default function Signup() {
 
         {/* Confirm Password */}
         <div className="space-y-1.5">
-          <Label htmlFor="confirmPassword" className="text-gray-700 dark:text-gray-300 text-sm">
+          <Label htmlFor="confirmPassword" className="text-foreground-secondary text-sm">
             Confirm Password
           </Label>
           <div className="relative">
@@ -195,11 +195,11 @@ export default function Signup() {
               placeholder="Repeat your password"
               value={form.confirmPassword}
               onChange={(e) => setField('confirmPassword', e.target.value)}
-              className={`h-11 pr-16 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
+              className={`h-11 pr-16 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
                 getError('confirmPassword')
-                  ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15'
+                  ? 'border-error focus:border-error focus:ring-error/15'
                   : passwordsMatch
-                  ? 'border-[#0F7B6C] focus:border-[#0F7B6C]'
+                  ? 'border-primary focus:border-primary'
                   : ''
               }`}
             />
@@ -211,14 +211,14 @@ export default function Signup() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.5 }}
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#0F7B6C]" />
+                    <CheckCircle2 className="w-4 h-4 text-primary" />
                   </motion.div>
                 )}
               </AnimatePresence>
               <button
                 type="button"
                 onClick={() => setShowConfirm((v) => !v)}
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+                className="text-foreground-muted hover:text-foreground-secondary transition-colors"
                 aria-label={showConfirm ? 'Hide password' : 'Show password'}
               >
                 {showConfirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -235,18 +235,18 @@ export default function Signup() {
               id="agreeToTerms"
               checked={form.agreeToTerms}
               onCheckedChange={(checked) => setField('agreeToTerms', Boolean(checked))}
-              className="mt-0.5 border-gray-300 dark:border-gray-600 data-[state=checked]:bg-[#0F7B6C] data-[state=checked]:border-[#0F7B6C]"
+              className="mt-0.5 border-border data-[state=checked]:bg-primary data-[state=checked]:border-primary"
             />
             <Label
               htmlFor="agreeToTerms"
-              className="text-sm text-gray-600 dark:text-gray-400 font-normal cursor-pointer leading-relaxed"
+              className="text-sm text-foreground-secondary font-normal cursor-pointer leading-relaxed"
             >
               I agree to the{' '}
-              <a href="#" className="text-[#0F7B6C] dark:text-teal-400 hover:underline font-medium">
+              <a href="#" className="text-primary hover:underline font-medium">
                 Terms of Service
               </a>{' '}
               and{' '}
-              <a href="#" className="text-[#0F7B6C] dark:text-teal-400 hover:underline font-medium">
+              <a href="#" className="text-primary hover:underline font-medium">
                 Privacy Policy
               </a>
             </Label>
@@ -258,7 +258,7 @@ export default function Signup() {
         <Button
           type="submit"
           disabled={loading}
-          className="w-full h-11 rounded-xl bg-gradient-to-r from-[#0F7B6C] to-teal-500 hover:shadow-lg hover:shadow-teal-500/25 transition-all text-base font-semibold mt-1"
+          className="w-full h-11 rounded-xl bg-primary hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/25 transition-all text-base font-semibold mt-1"
         >
           {loading ? (
             <>
@@ -274,11 +274,11 @@ export default function Signup() {
         </Button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p className="mt-6 text-center text-sm text-foreground-secondary">
         Already have an account?{' '}
         <Link
           to="/login"
-          className="text-[#0F7B6C] dark:text-teal-400 font-semibold hover:underline"
+          className="text-primary font-semibold hover:underline"
         >
           Sign in
         </Link>

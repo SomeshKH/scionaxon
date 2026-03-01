@@ -12,12 +12,12 @@ export default function LandingFooter() {
               </div>
               <span className="text-2xl font-bold">ScionAxon</span>
             </div>
-            <p className="text-teal-200 dark:text-gray-400">Next-generation global trade platform powered by AI</p>
+            <p className="text-foreground-secondary">Next-generation global trade platform powered by AI</p>
           </div>
 
           <div>
             <h4 className="font-bold mb-4">Products</h4>
-            <ul className="space-y-2 text-teal-200 dark:text-gray-400">
+            <ul className="space-y-2 text-foreground-secondary">
               <li><a href="#" className="hover:text-white transition-colors">Import Management</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Export Solutions</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Analytics</a></li>
@@ -27,7 +27,7 @@ export default function LandingFooter() {
 
           <div>
             <h4 className="font-bold mb-4">Company</h4>
-            <ul className="space-y-2 text-teal-200 dark:text-gray-400">
+            <ul className="space-y-2 text-foreground-secondary">
               <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Partners</a></li>
@@ -37,7 +37,7 @@ export default function LandingFooter() {
 
           <div>
             <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2 text-teal-200 dark:text-gray-400">
+            <ul className="space-y-2 text-foreground-secondary">
               <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
@@ -45,7 +45,7 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 text-center text-teal-200 dark:text-gray-500">
+        <div className="border-t border-white/20 pt-8 text-center text-foreground-secondary">
           <p>© 2026 ScionAxon. All rights reserved.</p>
         </div>
       </div>

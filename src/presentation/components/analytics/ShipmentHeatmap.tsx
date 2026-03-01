@@ -26,7 +26,7 @@ export default function ShipmentHeatmap({ data }: Props) {
                   key={i}
                   whileHover={{ scale: 1.1 }}
                   className="h-12 rounded-lg cursor-pointer flex items-center justify-center text-white font-bold text-sm relative group"
-                  style={{ backgroundColor: `rgba(15, 123, 108, ${value / 100})` }}
+                  style={{ backgroundColor: `color-mix(in srgb, var(--primary) ${value}%, transparent)` }}
                 >
                   {value}
                   <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-900 dark:bg-gray-700 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
@@ -46,7 +46,7 @@ export default function ShipmentHeatmap({ data }: Props) {
             <div
               key={i}
               className="w-6 h-6 rounded"
-              style={{ backgroundColor: `rgba(15, 123, 108, ${opacity / 100})` }}
+              style={{ backgroundColor: `color-mix(in srgb, var(--primary) ${opacity}%, transparent)` }}
             ></div>
           ))}
         </div>

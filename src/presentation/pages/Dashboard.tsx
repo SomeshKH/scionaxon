@@ -16,7 +16,7 @@ export default function Dashboard() {
   const [activeMenu, setActiveMenu] = useState('Dashboard');
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-background">
       <DashboardTopBar
         sidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}

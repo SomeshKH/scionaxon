@@ -43,7 +43,7 @@ export default function ServicesSection({ services }: Props) {
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900 dark:text-white">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-5 sm:mb-6 leading-relaxed">{service.description}</p>
 
-                <div className="flex items-center text-[#0F7B6C] dark:text-teal-400 font-semibold group-hover:gap-2 transition-all">
+                <div className="flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
                   Learn More
                   <ArrowRight className="w-5 h-5 ml-1 group-hover:translate-x-2 transition-transform" />
                 </div>

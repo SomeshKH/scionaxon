@@ -28,7 +28,7 @@ export default function RevenueChart({ data }: Props) {
           <h3 className="text-xl font-bold dark:text-white">Revenue Trend</h3>
           <p className="text-sm text-gray-500 dark:text-gray-400">Last 7 months performance</p>
         </div>
-        <Button variant="outline" size="sm" className="border-[#0F7B6C] text-[#0F7B6C] dark:border-teal-500 dark:text-teal-400">
+        <Button variant="outline" size="sm" className="border-primary text-primary">
           View Details
         </Button>
       </div>
@@ -37,8 +37,8 @@ export default function RevenueChart({ data }: Props) {
         <AreaChart data={data}>
           <defs>
             <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#0F7B6C" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#0F7B6C" stopOpacity={0} />
+              <stop offset="5%" stopColor="var(--primary)" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="var(--primary)" stopOpacity={0} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
@@ -56,7 +56,7 @@ export default function RevenueChart({ data }: Props) {
           <Area
             type="monotone"
             dataKey="revenue"
-            stroke="#0F7B6C"
+            stroke="var(--primary)"
             strokeWidth={3}
             fill="url(#colorRevenue)"
           />

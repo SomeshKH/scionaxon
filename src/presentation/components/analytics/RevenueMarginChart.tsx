@@ -30,8 +30,8 @@ export default function RevenueMarginChart({ data }: Props) {
             }}
           />
           <Legend />
-          <Line type="monotone" dataKey="revenue" stroke="#0F7B6C" strokeWidth={3} dot={{ r: 6 }} />
-          <Line type="monotone" dataKey="margin" stroke="#1F3A5F" strokeWidth={3} dot={{ r: 6 }} />
+          <Line type="monotone" dataKey="revenue" stroke="var(--primary)" strokeWidth={3} dot={{ r: 6 }} />
+          <Line type="monotone" dataKey="margin" stroke="var(--info)" strokeWidth={3} dot={{ r: 6 }} />
         </LineChart>
       </ResponsiveContainer>
     </motion.div>

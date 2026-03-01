@@ -39,10 +39,10 @@ export default function Login() {
     >
       {/* Heading */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-1.5">
+        <h1 className="text-3xl font-bold text-foreground mb-1.5">
           Welcome back
         </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-sm">
+        <p className="text-foreground-secondary text-sm">
           Sign in to your ScionAxon account
         </p>
       </div>
@@ -57,7 +57,7 @@ export default function Login() {
       >
         {/* Email */}
         <div className="space-y-1.5">
-          <Label htmlFor="email" className="text-gray-700 dark:text-gray-300 text-sm">
+          <Label htmlFor="email" className="text-foreground-secondary text-sm">
             Email Address
           </Label>
           <Input
@@ -66,8 +66,8 @@ export default function Login() {
             placeholder="you@company.com"
             value={form.email}
             onChange={(e) => setField('email', e.target.value)}
-            className={`h-11 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
-              getError('email') ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15' : ''
+            className={`h-11 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
+              getError('email') ? 'border-error focus:border-error focus:ring-error/15' : ''
             }`}
           />
           <FieldError message={getError('email')} />
@@ -76,12 +76,12 @@ export default function Login() {
         {/* Password */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <Label htmlFor="password" className="text-gray-700 dark:text-gray-300 text-sm">
+            <Label htmlFor="password" className="text-foreground-secondary text-sm">
               Password
             </Label>
             <a
               href="#"
-              className="text-xs text-[#0F7B6C] dark:text-teal-400 hover:underline font-medium"
+              className="text-xs text-primary hover:underline font-medium"
             >
               Forgot password?
             </a>
@@ -93,14 +93,14 @@ export default function Login() {
               placeholder="••••••••"
               value={form.password}
               onChange={(e) => setField('password', e.target.value)}
-              className={`h-11 pr-11 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-800/80 focus:border-[#0F7B6C] focus:ring-2 focus:ring-[#0F7B6C]/15 transition-all ${
-                getError('password') ? 'border-red-500 focus:border-red-500 focus:ring-red-500/15' : ''
+              className={`h-11 pr-11 rounded-xl border-border bg-input-background focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all ${
+                getError('password') ? 'border-error focus:border-error focus:ring-error/15' : ''
               }`}
             />
             <button
               type="button"
               onClick={() => setShowPassword((v) => !v)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground-muted hover:text-foreground-secondary transition-colors"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -115,11 +115,11 @@ export default function Login() {
             id="rememberMe"
             checked={form.rememberMe}
             onCheckedChange={(checked) => setField('rememberMe', Boolean(checked))}
-            className="border-gray-300 dark:border-gray-600 data-[state=checked]:bg-[#0F7B6C] data-[state=checked]:border-[#0F7B6C]"
+            className="border-border data-[state=checked]:bg-primary data-[state=checked]:border-primary"
           />
           <Label
             htmlFor="rememberMe"
-            className="text-sm text-gray-600 dark:text-gray-400 font-normal cursor-pointer"
+            className="text-sm text-foreground-secondary font-normal cursor-pointer"
           >
             Remember me for 30 days
           </Label>
@@ -129,7 +129,7 @@ export default function Login() {
         <Button
           type="submit"
           disabled={loading}
-          className="w-full h-11 rounded-xl bg-gradient-to-r from-[#0F7B6C] to-teal-500 hover:shadow-lg hover:shadow-teal-500/25 transition-all text-base font-semibold mt-1"
+          className="w-full h-11 rounded-xl bg-primary hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/25 transition-all text-base font-semibold mt-1"
         >
           {loading ? (
             <>
@@ -147,10 +147,10 @@ export default function Login() {
         {/* Divider */}
         <div className="relative">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200 dark:border-gray-700" />
+            <div className="w-full border-t border-border" />
           </div>
           <div className="relative flex justify-center">
-            <span className="px-3 bg-gray-50 dark:bg-gray-950 text-xs text-gray-400 dark:text-gray-500">
+            <span className="px-3 bg-background text-xs text-foreground-muted">
               or continue with
             </span>
           </div>
@@ -160,7 +160,7 @@ export default function Login() {
         <Button
           type="button"
           variant="outline"
-          className="w-full h-11 rounded-xl border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+          className="w-full h-11 rounded-xl border-border text-foreground hover:bg-muted transition-all"
         >
           <svg className="w-4 h-4 mr-2.5 shrink-0" viewBox="0 0 24 24">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -176,7 +176,7 @@ export default function Login() {
         Don't have an account?{' '}
         <Link
           to="/signup"
-          className="text-[#0F7B6C] dark:text-teal-400 font-semibold hover:underline"
+          className="text-primary font-semibold hover:underline"
         >
           Create one free
         </Link>

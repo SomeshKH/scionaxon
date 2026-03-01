@@ -12,7 +12,7 @@ export default function QuickActions() {
     >
       <h3 className="text-xl font-bold mb-4 dark:text-white">Quick Actions</h3>
       <div className="space-y-3">
-        <Button className="w-full justify-start bg-gradient-to-r from-[#0F7B6C] to-teal-500 hover:shadow-lg">
+        <Button className="w-full justify-start bg-primary hover:bg-primary-hover hover:shadow-lg">
           <Plus className="w-5 h-5 mr-2" />
           Add Product
         </Button>

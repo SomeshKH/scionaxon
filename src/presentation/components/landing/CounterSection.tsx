@@ -17,7 +17,7 @@ export default function CounterSection({ counts }: Props) {
             transition={{ duration: 0.5 }}
           >
             <div className="text-5xl font-bold text-white mb-2">{counts.countries}+</div>
-            <div className="text-teal-200">Countries Connected</div>
+            <div className="text-foreground-secondary">Countries Connected</div>
           </motion.div>
 
           <motion.div
@@ -27,7 +27,7 @@ export default function CounterSection({ counts }: Props) {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="text-5xl font-bold text-white mb-2">{counts.shipments.toLocaleString()}+</div>
-            <div className="text-teal-200">Successful Shipments</div>
+            <div className="text-foreground-secondary">Successful Shipments</div>
           </motion.div>
 
           <motion.div
