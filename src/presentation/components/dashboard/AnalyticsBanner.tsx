@@ -10,7 +10,7 @@ export default function AnalyticsBanner() {
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mb-8 bg-gradient-to-r from-[#1F3A5F] to-[#0F7B6C] rounded-2xl p-6 shadow-lg relative overflow-hidden"
+      className="mb-8 bg-gradient-to-r from-sidebar to-primary rounded-2xl p-6 shadow-lg relative overflow-hidden"
     >
       <div
         className="absolute inset-0 opacity-50"
@@ -24,14 +24,14 @@ export default function AnalyticsBanner() {
           </div>
           <div>
             <h3 className="text-xl font-bold text-white mb-1">Advanced Analytics Dashboard</h3>
-            <p className="text-teal-200 text-sm">
+            <p className="text-white/70 text-sm">
               Explore interactive global trade maps, heatmaps, and AI-powered insights
             </p>
           </div>
         </div>
 
         <Link to="/analytics">
-          <Button className="bg-white hover:bg-gray-100 text-[#1F3A5F] shadow-lg hover:shadow-xl transition-all">
+          <Button className="bg-white hover:bg-white/90 text-sidebar shadow-lg hover:shadow-xl transition-all">
             <Sparkles className="w-4 h-4 mr-2" />
             View Analytics
             <ChevronRight className="w-4 h-4 ml-2" />

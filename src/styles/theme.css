@@ -23,11 +23,11 @@
      │  BRAND                                  │
      └─────────────────────────────────────────┘ */
 
-  /* Primary — Deep Forest Green (#1F7A63) */
-  --primary:                  #1F7A63;
-  --primary-hover:            #186655;
-  --primary-active:           #10524A;
-  --primary-surface:          #EBF5F1;
+  /* Primary — Teal (#0F7B6C) */
+  --primary:                  #0F7B6C;
+  --primary-hover:            #0D6A5C;
+  --primary-active:           #0A5550;
+  --primary-surface:          #E5F5F2;
   --primary-foreground:       #FFFFFF;
 
   /* Secondary — Rich Gold (#CFAF4A) */
@@ -62,10 +62,10 @@
      │  BORDER & DIVIDER                       │
      └─────────────────────────────────────────┘ */
 
-  --border:                   rgba(31, 122, 99, 0.15);
-  --border-strong:            rgba(31, 122, 99, 0.32);
+  --border:                   rgba(15, 123, 108, 0.15);
+  --border-strong:            rgba(15, 123, 108, 0.32);
   --divider:                  rgba(46, 46, 46, 0.08);
-  --ring:                     #1F7A63;
+  --ring:                     #0F7B6C;
 
   /* ┌─────────────────────────────────────────┐
      │  TYPOGRAPHY                             │
@@ -121,7 +121,7 @@
      1 Forest Green  2 Rich Gold   3 Earth Brown
      4 Sky Blue      5 Violet      6 Emerald      */
 
-  --chart-1:                  #1F7A63;
+  --chart-1:                  #0F7B6C;
   --chart-2:                  #CFAF4A;
   --chart-3:                  #8B5E3C;
   --chart-4:                  #3B82F6;
@@ -132,14 +132,14 @@
      │  SIDEBAR                                │
      └─────────────────────────────────────────┘ */
 
-  --sidebar:                  #163F30;
+  --sidebar:                  #1F3A5F;
   --sidebar-foreground:       #FFFFFF;
-  --sidebar-primary:          #CFAF4A;
-  --sidebar-primary-foreground: #1A1400;
+  --sidebar-primary:          #0F7B6C;
+  --sidebar-primary-foreground: #FFFFFF;
   --sidebar-accent:           rgba(255, 255, 255, 0.10);
   --sidebar-accent-foreground: #FFFFFF;
   --sidebar-border:           rgba(255, 255, 255, 0.10);
-  --sidebar-ring:             #1F7A63;
+  --sidebar-ring:             #0F7B6C;
 
   /* ┌─────────────────────────────────────────┐
      │  SCALE & FONT                           │
@@ -164,10 +164,10 @@
 [data-theme="dark"] {
 
   /* Brand — elevated for readability on dark */
-  --primary:                  #28A882;
-  --primary-hover:            #34C498;
-  --primary-active:           #3DD9AD;
-  --primary-surface:          #0D2B22;
+  --primary:                  #14B8A0;
+  --primary-hover:            #20CEB5;
+  --primary-active:           #2ADEC5;
+  --primary-surface:          #0A2420;
   --primary-foreground:       #FFFFFF;
 
   /* Gold — slightly richer in dark mode */
@@ -195,10 +195,10 @@
   --popover-foreground:       #E8F0EC;
   --overlay:                  rgba(0, 0, 0, 0.65);
 
-  --border:                   rgba(40, 168, 130, 0.18);
-  --border-strong:            rgba(40, 168, 130, 0.38);
+  --border:                   rgba(20, 184, 160, 0.18);
+  --border-strong:            rgba(20, 184, 160, 0.38);
   --divider:                  rgba(255, 255, 255, 0.06);
-  --ring:                     #28A882;
+  --ring:                     #14B8A0;
 
   /* Text — green-tinted soft whites, NOT pure #FFFFFF */
   --foreground:               #E8F0EC;
@@ -238,22 +238,22 @@
   --info-foreground:          #FFFFFF;
 
   /* Charts — luminous, high contrast on dark */
-  --chart-1:                  #28A882;
+  --chart-1:                  #14B8A0;
   --chart-2:                  #E8C855;
   --chart-3:                  #C4895D;
   --chart-4:                  #60A5FA;
   --chart-5:                  #C084FC;
   --chart-6:                  #34D399;
 
-  /* Sidebar — deepest green, slightly darker than background */
-  --sidebar:                  #0D1F19;
+  /* Sidebar — deep navy, darker than #1F3A5F */
+  --sidebar:                  #152844;
   --sidebar-foreground:       #E8F0EC;
-  --sidebar-primary:          #E8C855;
-  --sidebar-primary-foreground: #1A1200;
-  --sidebar-accent:           rgba(232, 200, 85, 0.10);
+  --sidebar-primary:          #14B8A0;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:           rgba(20, 184, 160, 0.15);
   --sidebar-accent-foreground: #E8F0EC;
   --sidebar-border:           rgba(255, 255, 255, 0.07);
-  --sidebar-ring:             #28A882;
+  --sidebar-ring:             #14B8A0;
 }
 
 

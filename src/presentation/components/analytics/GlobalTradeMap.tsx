@@ -51,7 +51,7 @@ export default function GlobalTradeMap({ onCountrySelect }: Props) {
             <h3 className="text-2xl font-bold text-white mb-2">Interactive Global Trade Map</h3>
             <p className="text-teal-200">Click on routes to filter • Hover for volume</p>
           </div>
-          <Button variant="outline" className="text-white border-white/30 hover:bg-white/10">
+          <Button variant="outline" className="text-darkblue border-white/30">
             <Globe className="w-4 h-4 mr-2" />
             Reset View
           </Button>

@@ -9,6 +9,50 @@ interface Props {
   shipments: AnalyticsShipment[];
 }
 
+const countryCodes: Record<string, string> = {
+  'UAE': 'ae',
+  'Germany': 'de',
+  'USA': 'us',
+  'UK': 'gb',
+  'Japan': 'jp',
+  'Netherlands': 'nl',
+  'India': 'in',
+  'China': 'cn',
+  'Vietnam': 'vn',
+  'Thailand': 'th',
+  'Brazil': 'br',
+  'France': 'fr',
+  'Italy': 'it',
+  'Spain': 'es',
+  'Canada': 'ca',
+  'Australia': 'au',
+  'Singapore': 'sg',
+  'South Korea': 'kr',
+  'Malaysia': 'my',
+  'Indonesia': 'id',
+};
+
+interface FlagProps {
+  country: string;
+  size?: 'sm' | 'md';
+}
+
+function FlagImage({ country, size = 'sm' }: FlagProps) {
+  const code = countryCodes[country];
+  if (!code) return null;
+  const dimensions = size === 'sm' ? { w: 20, h: 15 } : { w: 24, h: 18 };
+  return (
+    <img
+      src={`https://flagcdn.com/${dimensions.w}x${dimensions.h}/${code}.png`}
+      srcSet={`https://flagcdn.com/${dimensions.w * 2}x${dimensions.h * 2}/${code}.png 2x`}
+      width={dimensions.w}
+      height={dimensions.h}
+      alt={country}
+      className="rounded-sm object-cover shrink-0 shadow-sm"
+    />
+  );
+}
+
 function getStatusColor(status: string): string {
   switch (status) {
     case 'delivered': return 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400';
@@ -62,18 +106,27 @@ export default function ShipmentAnalyticsTable({ shipments }: Props) {
                 transition={{ delay: idx * 0.05 }}
                 className="border-b border-gray-100 dark:border-gray-700/50 hover:bg-gradient-to-r hover:from-[#0F7B6C]/5 hover:to-transparent dark:hover:from-teal-500/10 transition-all cursor-pointer"
               >
+                {/* Origin */}
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#0F7B6C] dark:text-teal-400" />
+                    <MapPin className="w-4 h-4 text-[#0F7B6C] dark:text-teal-400 shrink-0" />
+                    <FlagImage country={shipment.origin} />
                     <span className="text-sm font-medium dark:text-gray-300">{shipment.origin}</span>
                   </div>
                 </td>
+
                 <td className="px-6 py-4 text-sm dark:text-gray-300">{shipment.product}</td>
                 <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">{shipment.supplier}</td>
                 <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">{shipment.customer}</td>
+
+                {/* Destination country with flag image */}
                 <td className="px-6 py-4">
-                  <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">{shipment.country}</Badge>
+                  <div className="flex items-center gap-2">
+                    <FlagImage country={shipment.country} size="md" />
+                    <span className="text-sm font-medium dark:text-gray-300">{shipment.country}</span>
+                  </div>
                 </td>
+
                 <td className="px-6 py-4 text-sm font-semibold dark:text-gray-300">{shipment.boxes}</td>
                 <td className="px-6 py-4 text-sm dark:text-gray-300">{(shipment.weight / 1000).toFixed(1)}T</td>
                 <td className="px-6 py-4 text-sm font-semibold text-green-600 dark:text-green-400">
